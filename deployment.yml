@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bms-app
+  labels:
+    app: bms
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bms
+  template:
+    metadata:
+      labels:
+        app: bms
+    spec:
+      containers:
+      - name: bms-container
+        image: kastrov/bms:latest  # Replace with your Docker image
+        ports:
+        - containerPort: 3000  # Replace with the port your app runs on
